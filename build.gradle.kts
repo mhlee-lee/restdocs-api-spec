@@ -51,6 +51,12 @@ allprojects {
         apply(plugin = "maven-publish")
         apply(plugin = "org.jmailen.kotlinter")
     }
+
+    afterEvaluate {
+        extensions.findByType<SigningExtension>()?.apply {
+            isRequired = false
+        }
+    }
 }
 
 
