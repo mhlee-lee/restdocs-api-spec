@@ -272,7 +272,7 @@ internal class PostmanCollectionGeneratorTest {
                     description = "This is some signature",
                     type = "STRING",
                     optional = false,
-                    example = "some"
+                    _example = "some"
                 )
             ),
             responseFields = listOf(
@@ -397,7 +397,7 @@ internal class PostmanCollectionGeneratorTest {
                     description = "Access token",
                     type = "string",
                     optional = false,
-                    example = "some"
+                    _example = "some"
                 )
             ),
             pathParameters = listOf(

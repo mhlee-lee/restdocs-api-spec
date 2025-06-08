@@ -75,9 +75,12 @@ data class HeaderDescriptor(
     override val type: String,
     @JsonProperty("default") override val defaultValue: Any? = null,
     override val optional: Boolean,
-    val example: String? = null,
+    @JsonProperty("example")  private val _example: String? = null,
     override val attributes: Attributes = Attributes()
-) : AbstractParameterDescriptor
+) : AbstractParameterDescriptor {
+    val example: String?
+        get() = attributes.example ?: _example
+}
 
 open class FieldDescriptor(
     val path: String,
@@ -93,6 +96,7 @@ data class Attributes(
     val enumValues: List<Any> = emptyList(),
     val itemsType: String? = null,
     val schemaName: String? = null,
+    val example: String? = null,
 )
 
 data class Constraint(
@@ -108,7 +112,10 @@ data class ParameterDescriptor(
     override val optional: Boolean,
     val ignored: Boolean,
     override val attributes: Attributes = Attributes()
-) : AbstractParameterDescriptor
+) : AbstractParameterDescriptor {
+    val example: String?
+        get() = attributes.example
+}
 
 data class SecurityRequirements(
     val type: SecurityType,

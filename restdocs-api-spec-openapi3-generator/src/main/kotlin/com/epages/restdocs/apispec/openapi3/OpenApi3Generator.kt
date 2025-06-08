@@ -448,6 +448,7 @@ object OpenApi3Generator {
             name = parameterDescriptor.name
             description = parameterDescriptor.description
             schema = simpleTypeToSchema(parameterDescriptor)
+            example = parameterDescriptor.example
         }
     }
 
@@ -465,6 +466,7 @@ object OpenApi3Generator {
             description = parameterDescriptor.description
             required = parameterDescriptor.optional.not()
             schema = simpleTypeToSchema(parameterDescriptor)
+            example = parameterDescriptor.example
         }
     }
 
